@@ -74,7 +74,7 @@ mv /usr/local/include/ompl-x.x /usr/local/include/ompl
 
 4. Build motion planner python wrapper
 ```
-cd ./mopa-pd/motion_planner
+cd ./mopa-pd/motion_planners
 python setup.py build_ext --inplace
 ```
 
