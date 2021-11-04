@@ -346,14 +346,14 @@ def argparser():
     parser.add_argument(
         "--wandb",
         type=str2bool,
-        default=True, # False for eval
+        default=False, # False for eval
         help="set it True if you want to use wandb",
     )
     parser.add_argument(
-        "--entity", type=str, default="arthur801031", help="Set an entity name for wandb"
+        "--entity", type=str, default="", help="Set an entity name for wandb"
     )
     parser.add_argument(
-        "--project", type=str, default="mopa-rl-image", help="set a project name for wandb"
+        "--project", type=str, default="", help="set a project name for wandb"
     )
     parser.add_argument("--group", type=str, default=None, help="group for wandb")
     parser.add_argument(

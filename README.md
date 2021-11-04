@@ -78,7 +78,14 @@ cd ./mopa-pd/motion_planner
 python setup.py build_ext --inplace
 ```
 
-5. Servers without a monitor (optional)
+5. Configure [wandb](http://wandb.ai/) for tracking experiments (optional)
+  * Sign up for a free account at https://app.wandb.ai/login?signup=true.
+  * Open this file: `config/__init__.py`
+  * Set `wandb` argument to `True`.
+  * Add your username to the `entity` argument.
+  * Add your project name to the `project` argument.  
+
+6. Servers without a monitor (optional)
 
 You may use the following code to create a virtual monitor for rendering.
 
