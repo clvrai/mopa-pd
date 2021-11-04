@@ -171,9 +171,9 @@ class BCRLTrainer(object):
 				 non_limited_idx,
 				 self._env.ref_joint_pos_indexes,
 				 self._env.joint_space,
-				 self._env._is_jnt_limited,
+				 self._env.is_jnt_limited,
 				 self._env.jnt_indices,
-				 self._env._ac_scale,
+				 self._env.ac_scale,
 			 )
 			 ckpt = torch.load(config.mopa_checkpoint)
 			 self._expert_agent.load_state_dict(ckpt["agent"])
@@ -188,9 +188,9 @@ class BCRLTrainer(object):
 				 non_limited_idx,
 				 self._env.ref_joint_pos_indexes,
 				 self._env.joint_space,
-				 self._env._is_jnt_limited,
+				 self._env.is_jnt_limited,
 				 self._env.jnt_indices,
-				 self._env._ac_scale,
+				 self._env.ac_scale,
 				 expert_agent=self._expert_agent,
 			 )
 		 elif config.expert_mode == 'bc-stochastic':
@@ -209,9 +209,9 @@ class BCRLTrainer(object):
 				 non_limited_idx,
 				 self._env.ref_joint_pos_indexes,
 				 self._env.joint_space,
-				 self._env._is_jnt_limited,
+				 self._env.is_jnt_limited,
 				 self._env.jnt_indices,
-				 self._env._ac_scale,
+				 self._env.ac_scale,
 			 )
 			 ckpt = torch.load(config.mopa_checkpoint)
 			 self._expert_agent.load_state_dict(ckpt["agent"])
@@ -224,9 +224,9 @@ class BCRLTrainer(object):
 				 non_limited_idx,
 				 self._env.ref_joint_pos_indexes,
 				 self._env.joint_space,
-				 self._env._is_jnt_limited,
+				 self._env.is_jnt_limited,
 				 self._env.jnt_indices,
-				 self._env._ac_scale,
+				 self._env.ac_scale,
 				 expert_agent=self._expert_agent,
 			 )
 		 else:
@@ -239,9 +239,9 @@ class BCRLTrainer(object):
 				 non_limited_idx,
 				 self._env.ref_joint_pos_indexes,
 				 self._env.joint_space,
-				 self._env._is_jnt_limited,
+				 self._env.is_jnt_limited,
 				 self._env.jnt_indices,
-				 self._env._ac_scale,
+				 self._env.ac_scale,
 			 )
 
 		 self._agent._ac_space.seed(config.seed)
