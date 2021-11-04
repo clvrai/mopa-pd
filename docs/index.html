@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <title>MoPA-PD</title>
+
+    <meta charset="UTF-8">
+    <meta property="og:title" content=MoPA-PD>
+    <meta property="og:description" content="Liu et al. Distilling Motion-Planner Augmented Policies into Visual Control Policies for Robot Manipulation">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:type" content="website">
+    <meta name="viewport" content="width=device-width, initial-scale=1 minimum-scale=1.0">
+
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100, 100i,300,400,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- Showdown -->
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js"></script>
+    <script src="js/figure-extension.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!-- WAVE -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Slick -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <link rel="stylesheet" href="theme.css">
+
+    <script>
+        const classMap = {
+            ul: 'browser-default'
+        }
+
+        const bindings = Object.keys(classMap)
+        .map(key => ({
+            type: 'output',
+            regex: new RegExp(`<${key}(.*)>`, 'g'),
+            replace: `<${key} class="${classMap[key]}" $1>`
+        }));
+
+        const converter = new showdown.Converter({
+            extensions: [bindings, 'figure']
+        });
+        converter.setOption('parseImgDimensions', true);
+        converter.setOption('tables', true);
+        converter.setFlavor('github');
+
+        $("#markdown-body").ready(() => {
+            $.get( "content.md", (data) => {
+                const content_html = converter.makeHtml(data);
+                $("#markdown-body").html(content_html);
+            });
+        });
+
+    </script>
+
+    <body>
+        <!-- Header -->
+        <!-- Wide screen -->
+        <header class="hd-container w3-container hide-narrow content-center">
+            <div class="w3-cell-row" style="width: 90%; margin: auto; max-width: 1600px; margin-top: 80px; margin-bottom: 40px">
+                <div class="w3-container w3-cell w3-cell-middle">
+                    <div class="title">Distilling Motion Planner Augmented Policies into</div>
+                    <div class="title">Visual Control Policies for Robot Manipulation</div>
+                    <!-- Author -->
+                <div class="w3-row-padding">
+                    <div class="authorship-container">
+                        <ul class="horizontal-list">
+                            <li><a href="https://arthur801031.github.io/" target="_blank"><i class="far fa-user"></i> I-Chun Arthur Liu<sup>* 2</sup></a></li>
+                            <li><a href="https://shagunuppal.github.io/" target="_blank"><i class="far fa-user"></i> Shagun Uppal<sup>* 1</sup></a></li>
+                            <li><a href="http://robotics.usc.edu/~gaurav" target="_blank"><i class="far fa-user"></i> Gaurav S. Sukhatme<sup>2</sup> </a></li>
+                            <li><a href="https://viterbi-web.usc.edu/~limjj/" target="_blank"><i class="far fa-user"></i> Joseph J. Lim<sup>1</sup> </a></li>
+                            <li><a href="http://www.peter-englert.net/" target="_blank"><i class="far fa-user"></i> Peter Englert<sup>2</sup> </a></li>
+                            <li><a href="https://youngwoon.github.io" target="_blank"><i class="far fa-user"></i> Youngwoon Lee<sup>1</sup></a></li>
+                        </ul>
+                        <span class="school"><a href="https://clvrai.com/" target="_blank"><i class="fas fa-university"></i> Cognitive Learning for Vision and Robotics (CLVR), USC<sup>1</sup> </a></span>
+                        <span class="school"><a href="https://robotics.usc.edu/resl/" target="_blank"><i class="fas fa-university"></i> Robotics Embedded Systems Laboratory (RESL), USC<sup>2</sup> </a></span>
+                    </div>
+                    <div class="w3-card-4 w3-round-large furniture-grid" style="width: 80%; max-width: 700px">
+                            <!-- <img width="100%" height="100%" src="img/teaser.png"> -->
+                            <img width="100%" height="100%" src="video/Thumbnail.gif">
+                    </div>
+
+                    </div>
+                    <div class="excerpt w3-padding-16" style="width: 80%; max-width: 700px; margin: auto;">
+                        Learning complex manipulation tasks in realistic, obstructed environments is a challenging problem due to hard exploration in the presence of obstacles and high-dimensional visual observations. Prior work tackles the exploration problem by integrating motion planning and reinforcement learning. However, the motion planner augmented policy requires access to state information, which is often not available in the real-world settings. To this end, we propose to distill the state-based motion planner augmented policy to a visual control policy via (1) visual behavioral cloning to remove the motion planner dependency along with its jittery motion, and (2) vision-based reinforcement learning with the guidance of the smoothed trajectories from the behavioral cloning agent. We validate our proposed approach on three manipulation tasks in obstructed environments and show its high sample-efficiency, outperforming state-of-the-art algorithms for visual policy learning.  
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Narrow screen -->
+        <header class="hd-container w3-container hide-wide">
+            <div class="w3-row-padding w3-center w3-padding-24">
+                <span class="title">Distilling Motion Planner Augmented Policies into <br/> Visual Control Policies for Robot Manipulation</span>
+            </div>
+            <div class="w3-row-padding">
+                <!-- Author -->
+                <div class="authorship-container">
+                    <ul class="horizontal-list">
+                        <li><a href="https://arthur801031.github.io/" target="_blank"><i class="far fa-user"></i> I-Chun Arthur Liu<sup>* 2</sup></a></li>
+                        <li><a href="https://shagunuppal.github.io/" target="_blank"><i class="far fa-user"></i> Shagun Uppal*<sup>1</sup> </a></li>
+                        <li><a href="http://robotics.usc.edu/~gaurav" target="_blank"><i class="far fa-user"></i> Gaurav S. Sukhatme<sup>2</sup> </a></li>
+                        <li><a href="https://viterbi-web.usc.edu/~limjj/" target="_blank"><i class="far fa-user"></i> Joseph J. Lim<sup>1</sup> </a></li>
+                        <li><a href="http://www.peter-englert.net/" target="_blank"><i class="far fa-user"></i> Peter Englert<sup>2</sup> </a></li>
+                        <li><a href="https://youngwoon.github.io" target="_blank"><i class="far fa-user"></i> Youngwoon Lee<sup>1</sup></a></li>
+                    </ul>
+                    <span class="school"><a href="https://clvrai.com/" target="_blank"><i class="fas fa-university"></i> Cognitive Learning for Vision and Robotics (CLVR), USC</a></span> <br/>
+                    <span class="school"><a href="https://robotics.usc.edu/resl/" target="_blank"><i class="fas fa-university"></i> Robotics Embedded Systems Laboratory (RESL), USC</a></span>
+                </div>
+
+            </div>
+            <div class="w3-row-padding w3-center w3-padding-16">
+                <div class="w3-card-4 w3-round-large furniture-grid" style="width: 100%; max-width: 800px">
+                        <img width="100%" height="100%" src="video/Thumbnail.gif">
+                </div>
+            </div>
+            <div class="w3-row-padding"><hr></div>
+            <div class="w3-row-padding w3-padding-16">
+                <div class="excerpt">
+                    Learning complex manipulation tasks in realistic, obstructed environments is a challenging problem due to hard exploration in the presence of obstacles and high-dimensional visual observations. Prior work tackles the exploration problem by integrating motion planning and reinforcement learning. However, the motion planner augmented policy requires access to state information, which is often not available in the real-world settings. To this end, we propose to distill the state-based motion planner augmented policy to a visual control policy via (1) visual behavioral cloning to remove the motion planner dependency along with its jittery motion, and (2) vision-based reinforcement learning with the guidance of the smoothed trajectories from the behavioral cloning agent. We validate our proposed approach on three manipulation tasks in obstructed environments and show its high sample-efficiency, outperforming state-of-the-art algorithms for visual policy learning.
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Body -->
+        <div class="main-body">
+            <div class="w3-container">
+                <div class="w3-content" style="max-width:1000px;">
+                    <!-- Links -->
+                    <div class="link-container">
+                        <ul class="horizontal-list">
+                            <li><button class="w3-button waves-effect waves-light w3-card-4 grey lighten-2 w3-round-large"><i class="fas fa-file-alt"></i> <a href="https://openreview.net/pdf?id=NZnz3cExrDW" target="_blank"> Paper </a></button></li>
+                            <li><button class="w3-button waves-effect waves-light w3-card-4 grey lighten-2 w3-round-large"><i class="fas fa-code"></i> <a href="https://github.com/clvrai/mopa-pd" target="_blank"> Code </a></button></li>
+                            <li><button class="w3-button waves-effect waves-light w3-card-4 grey lighten-2 w3-round-large"><i class="fas fa-graduation-cap"></i> <a href="https://clvrai.github.io/mopa-rl/" target="_blank"> Prior Work: MoPA-RL </a></button></li>
+                        </ul>
+                    </div>
+                    <!-- Markdown Body -->
+                    <div id="markdown-body"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="w3-center w3-light-grey w3-padding-32 w3-small">
+            <p style="color: grey">This research is supported by the Annenberg Fellowship from USC, NAVER AI Lab, and NSF NRI-2024768. <br>We thank our colleagues from the CLVR lab and RESL for the valuable discussions that considerably assisted the research. <br>&copy; Copyright 2021, CLVR, USC.</p>
+        </footer>
+
+    </body>
+</html>

@@ -1,0 +1,127 @@
+{
+    "default":{
+        "tex_mod": {
+            "active": true,
+            "geoms": ["ground"],
+            "modes": ["imgs", "checker", "gradient", "rgb"]
+        },
+        "color_mod": {
+            "active": true,
+            "geoms_change": ["table_visual", "table_collision", "ground"]
+        },
+        "light_mod": {
+            "active": true,
+            "pos_range": [[-0.6, 0.6], [-0.6, 0.6], [1.3, 1.7]],
+            "spec_range": [0, 0.3],
+            "diffuse_range": [0.2, 1],
+            "ambient_range": [0.2, 1],
+            "head_light": true
+        },
+        "camera_mod":{
+            "active": false,
+            "use_default": false,
+            "cam_name": "visview",
+            "fovy_range": [42, 48],
+            "pos_change_range": [[-0.07, 0.07], [-0.07, 0.07], [-0.07, 0.07]],
+            "ang_jitter_range": [[-4, 4], [-4, 4], [-4, 4]]
+        },
+        "dynamics_mod":{
+            "active": false
+        }
+    },
+
+    "sawyer_push":{
+        "tex_mod": {
+            "active": true,
+            "geoms": ["ground"],
+            "modes": ["imgs", "checker", "gradient", "rgb"]
+        },
+        "color_mod": {
+            "active": true,
+            "geoms_change": ["ground"]
+        },
+        "light_mod": {
+            "active": true,
+            "pos_range": [[-0.6, 0.6], [-0.6, 0.6], [1.3, 1.7]],
+            "spec_range": [0, 0.3],
+            "diffuse_range": [0.2, 1],
+            "ambient_range": [0.2, 1],
+            "head_light": true
+        },
+        "camera_mod":{
+            "active": false,
+            "use_default": false,
+            "cam_name": "visview",
+            "fovy_range": [42, 48],
+            "pos_change_range": [[-0.07, 0.07], [-0.07, 0.07], [-0.07, 0.07]],
+            "ang_jitter_range": [[-4, 4], [-4, 4], [-4, 4]]
+        },
+        "dynamics_mod":{
+            "active": false
+        }
+    },
+
+    "sawyer_lift":{
+        "tex_mod": {
+            "active": true,
+            "geoms": ["ground"],
+            "modes": ["imgs", "checker", "gradient", "rgb"]
+        },
+        "color_mod": {
+            "active": true,
+            "geoms_change": ["table_visual", "table_collision", "ground"]
+        },
+        "light_mod": {
+            "active": true,
+            "pos_range": [[-0.6, 0.6], [-0.6, 0.6], [1.3, 1.7]],
+            "spec_range": [0, 0.3],
+            "diffuse_range": [0.2, 1],
+            "ambient_range": [0.2, 1],
+            "head_light": true
+        },
+        "camera_mod":{
+            "active": false,
+            "use_default": false,
+            "cam_name": "visview",
+            "fovy_range": [42, 48],
+            "pos_change_range": [[-0.07, 0.07], [-0.07, 0.07], [-0.07, 0.07]],
+            "ang_jitter_range": [[-4, 4], [-4, 4], [-4, 4]]
+        },
+        "dynamics_mod":{
+            "active": false
+        }
+    },
+
+    "sawyer_assembly":{
+        "tex_mod": {
+            "active": true,
+            "geoms": ["ground"],
+            "modes": ["imgs", "checker", "gradient", "rgb"]
+        },
+        "color_mod": {
+            "active": true,
+            "geoms_change": ["table_visual", "table_collision", "ground"]
+        },
+        "light_mod": {
+            "active": true,
+            "pos_range": [[-0.6, 0.6], [-0.6, 0.6], [1.3, 1.7]],
+            "spec_range": [0, 0.3],
+            "diffuse_range": [0.2, 1],
+            "ambient_range": [0.2, 1],
+            "head_light": true
+        },
+        "camera_mod":{
+            "active": false,
+            "use_default": false,
+            "cam_name": "visview",
+            "fovy_range": [42, 48],
+            "pos_change_range": [[-0.07, 0.07], [-0.07, 0.07], [-0.07, 0.07]],
+            "ang_jitter_range": [[-4, 4], [-4, 4], [-4, 4]]
+        },
+        "dynamics_mod":{
+            "active": false
+        }
+    }
+
+
+}
